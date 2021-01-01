@@ -1,15 +1,15 @@
 steps:
-  - name: "gcr.io/cloud-builders/docker"
-    env:
-      - 'BUILD=$BUILD_ID'
-      - 'PROJECT=$PROJECT_ID'
-      - 'REV=$REVISION_ID'
-      - 'ARC_VERSION=3.6.2'
-      - 'SPARK_VERSION=3.0.1'
-      - 'SCALA_VERSION=2.12'
-      - 'HADOOP_VERSION=3.2.0'
-      - 'ARC_JUPYTER_VERSION=3.11.0'
-      - 'ARC_IMAGE_VERSION=1.17.0'
-      - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
-      - 'FROM_IMAGE=ghcr.io/tripl-ai/arc:arc_${ARC_VERSION}_spark_${SPARK_VERSION}_scala_${SCALA_VERSION}_hadoop_${HADOOP_VERSION}_${ARC_IMAGE_VERSION}'
-      args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE", "--build-arg", "ARC_JUPYTER_VERSION"]
+- name: "gcr.io/cloud-builders/docker"
+  env:
+  - 'BUILD=$BUILD_ID'
+  - 'PROJECT=$PROJECT_ID'
+  - 'REV=$REVISION_ID'
+  - 'ARC_VERSION=3.6.2'
+  - 'SPARK_VERSION=3.0.1'
+  - 'SCALA_VERSION=2.12'
+  - 'HADOOP_VERSION=3.2.0'
+  - 'ARC_JUPYTER_VERSION=3.11.0'
+  - 'ARC_IMAGE_VERSION=$(cat arc/version)'
+  - 'ARC_JUPYTER_IMAGE_VERSION=$(cat arc-jupyter/version)'
+  - 'FROM_IMAGE=ghcr.io/tripl-ai/arc:arc_${ARC_VERSION}_spark_${SPARK_VERSION}_scala_${SCALA_VERSION}_hadoop_${HADOOP_VERSION}_${ARC_IMAGE_VERSION}'
+  args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE", "--build-arg", "ARC_JUPYTER_VERSION"]
