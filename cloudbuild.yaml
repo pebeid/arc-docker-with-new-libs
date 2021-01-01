@@ -14,4 +14,4 @@ steps:
   - 'ARC_JUPYTER_VERSION=3.11.0'
   - 'ARC_IMAGE_VERSION=1.17.0'
   - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
-  args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE=${_FROMIMAGE}", "--build-arg", "ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}", "./arc-jupyter"]
+  args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE=$_FROMIMAGE", "--build-arg", "ARC_JUPYTER_VERSION=$_ARCJUPYTERVERSION", "./arc-jupyter"]
