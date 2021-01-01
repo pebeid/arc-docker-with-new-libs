@@ -12,4 +12,4 @@ steps:
   - 'ARC_IMAGE_VERSION=1.17.0'
   - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
   - 'FROM_IMAGE=ghcr.io/tripl-ai/arc:arc_${ARC_VERSION}_spark_${SPARK_VERSION}_scala_${SCALA_VERSION}_hadoop_${HADOOP_VERSION}_${ARC_IMAGE_VERSION}'
-  args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE", "--build-arg", "ARC_JUPYTER_VERSION"]
+  args: ["build", "-f", "arc-jupyter/Dockerfile", "--build-arg", "FROM_IMAGE", "--build-arg", "ARC_JUPYTER_VERSION", "--file", "./arc-jupyter/Dockerfile"]
