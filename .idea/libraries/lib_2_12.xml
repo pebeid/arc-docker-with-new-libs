@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib_2.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/arc/lib_2.12/geospark-1.3.2-20200731.005325-3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/arc/lib_2.12/geospark-sql_3.0-1.3.2-20200731.023244-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/arc/lib_2.12/delta-core_2.12-0.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,5 +1,0 @@
-.vscode
-.metals
-/.m2/repository/**
-!/.m2/repository/.gitkeep
-.idea
