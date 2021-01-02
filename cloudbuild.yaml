@@ -1,5 +1,5 @@
 substitutions:
-  _FROMIMAGE: 'ghcr.io/tripl-ai/arc:arc_3.6.2_spark_3.0.1_scala_2.12_hadoop_3.2.0_1.17'
+  _FROMIMAGE: 'ghcr.io/tripl-ai/arc:arc_3.6.2_spark_3.0.1_scala_2.12_hadoop_3.2.0_1.17.0'
   _ARCJUPYTERVERSION: '3.11.0'
 steps:
 - name: "gcr.io/cloud-builders/docker"
@@ -15,4 +15,4 @@ steps:
   - 'ARC_IMAGE_VERSION=1.17.0'
   - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
   - 'FROM_IMAGE=ghcr.io/tripl-ai/arc:arc_${ARC_VERSION}_spark_${SPARK_VERSION}_scala_${SCALA_VERSION}_hadoop_${HADOOP_VERSION}_${ARC_IMAGE_VERSION}'
-  args: ['build', '--build-arg', 'FROM_IMAGE=${FROM_IMAGE}', '--build-arg', 'ARC_JUPYTER_VERSION=${ARC_JUPYTER_VERSION}', '--file', './arc-jupyter/Dockerfile', '.']
+  args: ['build', '--build-arg', 'FROM_IMAGE=${_FROMIMAGE}', '--build-arg', 'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}', '--file', './arc-jupyter/Dockerfile', '.']
