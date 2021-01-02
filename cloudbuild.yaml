@@ -27,9 +27,6 @@ steps:
           'gcr.io/jupyterinstance-223809/arc-mod1',
           '.'
       ]
-      images:
-        - 'gcr.io/jupyterinstance-223809/arc-mod1'
-
   - name: "gcr.io/cloud-builders/docker"
     env:
       - 'BUILD=$BUILD_ID'
@@ -57,5 +54,6 @@ steps:
     ]
 images:
   - 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1'
+  - 'gcr.io/jupyterinstance-223809/arc-mod1'
 
 timeout: 1200s
