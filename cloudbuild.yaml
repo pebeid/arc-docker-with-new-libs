@@ -23,7 +23,7 @@ steps:
           '--file',
           './arc-jupyter/Dockerfile',
           '-t',
-          'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:$COMMIT_SHA'
+          'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:$COMMIT_SHA',
           '.'
   ]
 images:
