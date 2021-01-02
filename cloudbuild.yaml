@@ -28,5 +28,5 @@ steps:
   ]
 images:
 - 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:$COMMIT_SHA'
-- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest'
+
 timeout: 1200s
