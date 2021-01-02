@@ -22,10 +22,11 @@ steps:
           '--build-arg', 'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}',
           '--file',
           './arc-jupyter/Dockerfile',
-          '--cache-from',
-          'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest',
+          '-t',
+          'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:$COMMIT_SHA'
           '.'
   ]
 images:
-- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1'
+- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:$COMMIT_SHA'
+- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest'
 timeout: 1200s
