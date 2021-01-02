@@ -1,32 +1,61 @@
 substitutions:
-  _FROMIMAGE: 'ghcr.io/tripl-ai/arc:arc_3.6.2_spark_3.0.1_scala_2.12_hadoop_3.2.0_1.17.0'
+  _FROMIMAGE: 'ghcr.io/tripl-ai/spark:spark_3.0.1_scala_2.12_hadoop_3.2.0'
   _ARCJUPYTERVERSION: '3.11.0'
 steps:
-- name: "gcr.io/cloud-builders/docker"
-  env:
-  - 'BUILD=$BUILD_ID'
-  - 'PROJECT=$PROJECT_ID'
-  - 'REV=$REVISION_ID'
-  - 'ARC_VERSION=3.6.2'
-  - 'SPARK_VERSION=3.0.1'
-  - 'SCALA_VERSION=2.12'
-  - 'HADOOP_VERSION=3.2.0'
-  - 'ARC_JUPYTER_VERSION=3.11.0'
-  - 'ARC_IMAGE_VERSION=1.17.0'
-  - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
-  - 'FROM_IMAGE=ghcr.io/tripl-ai/arc:arc_${ARC_VERSION}_spark_${SPARK_VERSION}_scala_${SCALA_VERSION}_hadoop_${HADOOP_VERSION}_${ARC_IMAGE_VERSION}'
-  args: [
+  - name: "gcr.io/cloud-builders/docker"
+    env:
+      - 'BUILD=$BUILD_ID'
+      - 'PROJECT=$PROJECT_ID'
+      - 'REV=$REVISION_ID'
+      - 'ARC_VERSION=3.6.2'
+      - 'SPARK_VERSION=3.0.1'
+      - 'SCALA_VERSION=2.12'
+      - 'HADOOP_VERSION=3.2.0'
+      - 'ARC_JUPYTER_VERSION=3.11.0'
+      - 'ARC_IMAGE_VERSION=1.17.0'
+      - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
+      - 'FROM_IMAGE=ghcr.io/tripl-ai/spark:spark_3.0.1_scala_2.12_hadoop_3.2.0'
+      args: [
           'build',
           '--build-arg',
           'FROM_IMAGE=${_FROMIMAGE}',
-          '--build-arg', 'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}',
+          '--build-arg',
+          'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}',
           '--file',
-          './arc-jupyter/Dockerfile',
+          './arc/Dockerfile',
           '-t',
-          'gcr.io/jupyterinstance-223809/arc-jupyter-mod1',
+          'gcr.io/jupyterinstance-223809/arc-mod1',
           '.'
-  ]
+      ]
+      images:
+        - 'gcr.io/jupyterinstance-223809/arc-mod1'
+
+  - name: "gcr.io/cloud-builders/docker"
+    env:
+      - 'BUILD=$BUILD_ID'
+      - 'PROJECT=$PROJECT_ID'
+      - 'REV=$REVISION_ID'
+      - 'ARC_VERSION=3.6.2'
+      - 'SPARK_VERSION=3.0.1'
+      - 'SCALA_VERSION=2.12'
+      - 'HADOOP_VERSION=3.2.0'
+      - 'ARC_JUPYTER_VERSION=3.11.0'
+      - 'ARC_IMAGE_VERSION=1.17.0'
+      - 'ARC_JUPYTER_IMAGE_VERSION=1.8.0'
+      - 'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1'
+    args: [
+        'build',
+        '--build-arg',
+        'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1',
+        '--build-arg',
+        'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}',
+        '--file',
+        './arc-jupyter/Dockerfile',
+        '-t',
+        'gcr.io/jupyterinstance-223809/arc-jupyter-mod1',
+        '.'
+    ]
 images:
-- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1'
+  - 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1'
 
 timeout: 1200s
