@@ -6,7 +6,7 @@ substitutions:
   _ARCJUPYTERVERSION: '3.11.0'
   _ARCIMAGEVERSION: '1.17.0'
   _ARCJUPYTERIMAGEVERSION: '1.8.0'
-  _FROMIMAGESPARK: 'ghcr.io/tripl-ai/spark:spark_${_SPARKVERSION}_scala_${_SCALAVERSION}_hadoop_${_HADOOPVERSION}'
+  _FROMIMAGESPARK: 'ghcr.io/tripl-ai/spark:spark_3.0.1_scala_2.12_hadoop_3.2.0'
 steps:
 - name: "gcr.io/cloud-builders/docker"
   env:
