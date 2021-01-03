@@ -30,6 +30,8 @@ steps:
       '--build-arg',
       'SPARK_VERSION=${_SPARKVERSION}',
       '--build-arg',
+      'SCALA_VERSION=${_SCALAVERSION}',
+      '--build-arg',
       'HADOOP_VERSION=${_HADOOPVERSION}',
       '--build-arg',
       'ARC_JUPYTER_VERSION=${_ARCJUPYTERVERSION}',
