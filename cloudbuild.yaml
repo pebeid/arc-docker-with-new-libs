@@ -39,6 +39,8 @@ steps:
       './arc/Dockerfile',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}',
+      '-t',
+      'gcr.io/jupyterinstance-223809/arc-mod1:latest',
       '.'
   ]
 - name: "gcr.io/cloud-builders/docker"
@@ -64,10 +66,14 @@ steps:
       './arc-jupyter/Dockerfile',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:${BUILD_ID}',
+      '-t',
+      'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest',
       '.'
   ]
 images:
 - 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:${BUILD_ID}'
+- 'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest'
 - 'gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}'
+- 'gcr.io/jupyterinstance-223809/arc-mod1:latest'
 
 timeout: 1200s
