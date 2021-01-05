@@ -23,7 +23,7 @@ steps:
   - 'FROM_IMAGE=${_FROMIMAGESPARK}'
   args: [
       'build',
-      '–-no-cache',
+      '--no-cache',
       '--build-arg',
       'FROM_IMAGE=${_FROMIMAGESPARK}',
       '--build-arg',
@@ -59,7 +59,7 @@ steps:
   - 'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}'
   args: [
       'build',
-      '–-no-cache',
+      '--no-cache',
       '--build-arg',
       'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}',
       '--build-arg',
