@@ -41,7 +41,7 @@ steps:
       'gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-mod1:latest',
-      '–no-cache',
+      '–-no-cache',
       '.'
   ]
 - name: "gcr.io/cloud-builders/docker"
@@ -69,7 +69,7 @@ steps:
       'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:${BUILD_ID}',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest',
-      '–no-cache',
+      '–-no-cache',
       '.'
   ]
 images:
