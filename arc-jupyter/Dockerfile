@@ -1,6 +1,8 @@
 ARG FROM_IMAGE
 FROM $FROM_IMAGE
 
+RUN echo "$FROM_IMAGE"
+
 # sudo password if set
 ARG PASSWD
 
