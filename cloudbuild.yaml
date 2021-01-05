@@ -23,6 +23,7 @@ steps:
   - 'FROM_IMAGE=${_FROMIMAGESPARK}'
   args: [
       'build',
+      '–-no-cache',
       '--build-arg',
       'FROM_IMAGE=${_FROMIMAGESPARK}',
       '--build-arg',
@@ -41,7 +42,6 @@ steps:
       'gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-mod1:latest',
-      '–-no-cache',
       '.'
   ]
 - name: "gcr.io/cloud-builders/docker"
@@ -59,6 +59,7 @@ steps:
   - 'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}'
   args: [
       'build',
+      '–-no-cache',
       '--build-arg',
       'FROM_IMAGE=gcr.io/jupyterinstance-223809/arc-mod1:${BUILD_ID}',
       '--build-arg',
@@ -69,7 +70,6 @@ steps:
       'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:${BUILD_ID}',
       '-t',
       'gcr.io/jupyterinstance-223809/arc-jupyter-mod1:latest',
-      '–-no-cache',
       '.'
   ]
 images:
