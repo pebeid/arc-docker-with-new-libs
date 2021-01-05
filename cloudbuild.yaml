@@ -38,7 +38,7 @@ steps:
       '--file',
       './arc/Dockerfile',
       '-t',
-      'gcr.io/jupyterinstance-223809/arc-mod1${SHORT_SHA}${BUILD_ID}',
+      'gcr.io/jupyterinstance-223809/arc-mod1:${SHORT_SHA}${BUILD_ID}',
       '.'
   ]
 - name: "gcr.io/cloud-builders/docker"
